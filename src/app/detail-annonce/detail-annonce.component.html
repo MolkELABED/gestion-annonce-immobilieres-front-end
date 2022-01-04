@@ -1,0 +1,31 @@
+<div class="p-1 card-group row" *ngIf="annonce">
+    <div class="details">
+      <div class="card m-7">
+        <div class="badge bg-light text-dark text-center card-header fs-4 fw-bolder">
+          {{annonce.titre}}
+          <span style="float:right;" class="edit">
+            <button class="btn btn-success fa fa-edit" [routerLink]="['/EditAnnonce/'+annonce.id]" ></button>
+            <button (click)="deleteAnnonce(annonce)" class="btn btn-danger fa fa-trash-o" ></button>
+          </span>
+        </div>
+        <div class="card-body">
+          <table>
+            <tr>
+              <td rowspan="2" style="padding-bottom: 1em;">
+                <img height="400" src= "{{this.annonceService.host+'/photoAnnonce/'+annonce.id}}"/>
+              </td>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <td  rowspan="2" style="padding-bottom: 1em;">
+                <i><b>Description: </b>{{annonce.description}}</i>
+                <br>
+                <br>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-map-marker"> &nbsp; <b>Lieu:</b></i> {{annonce.lieu}}</div>
+                <br>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-money"> &nbsp;<b>Prix:</b></i> {{annonce.prix}}</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

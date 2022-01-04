@@ -1,0 +1,45 @@
+<form>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="fw-bolder" type="text" name="titre" for="inputEmail4">Titre</label>
+        <input type="email" name="titre" class="form-control" id="inputEmail4" [(ngModel)]="annonce.titre" placeholder="Appartement, studio ou étage">
+      </div>
+      <br>
+      <div class="form-group">
+        <label class="fw-bolder" for="inputPassword4">Description</label>
+        <textarea class="form-control" name="description" id="inputPassword4" [(ngModel)]="annonce.description" placeholder="Description de l'annonce" aria-label="With textarea"></textarea>
+    </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="fw-bolder" for="inputAddress">Lieu</label>
+      <input type="text" class="form-control" name="lieu" id="inputAddress" [(ngModel)]="annonce.lieu" placeholder="Lieu">
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="fw-bolder" for="inputAddress2">Prix</label>
+      <input type="text" class="form-control" name="prix" id="inputAddress2"  [(ngModel)]="annonce.prix" placeholder="Prix">
+    </div>
+    <br>
+    <button [disabled]=!update type="submit" (click)="saveAnnonce()" class="btn btn-success">Enregistrer l'annonce</button>
+    <button [hidden]=update type="submit" (click)="updateAnnonce()" class="btn btn-secondary">Modifier l'annonce</button>
+    <br>
+    <br>
+    <div class="form-group" [hidden]=hidden>
+        <label class="fw-bolder" for="inputAddress2">Voulez vous télécharger une image pour l'annonce?</label>
+        <button type="submit" (click)="onOui()"  class="btn btn-success"> Oui </button>
+        <button type="submit" (click)="onNon()" class="btn btn-danger"> Non </button>
+    </div>
+    <br>
+    <div class="form-row" [hidden]=hidden1>
+        <div class="form-group col-md-12">
+          <div style="margin-top: -18px;" class="bg-light card-footer">
+              <input style="font-size:10px;" (change)="onSelectedFile($event)" type="file" />
+          </div>
+        </div>
+      </div>
+<br>
+      <div>
+        <button [hidden]=hidden1 [disabled]=disabled type="submit" (click)="uploadPhoto(annonce)" class="btn btn-success">Enregistrer l'image</button>
+      </div>
+      </form>
